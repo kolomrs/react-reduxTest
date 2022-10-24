@@ -24,7 +24,7 @@ const App = (params) => {
 
     }
     const deleteTask = (taskId) => {
-        store.dispatch(actions.taskDelete)
+        store.dispatch(actions.taskDelete(taskId))
     }
 
 

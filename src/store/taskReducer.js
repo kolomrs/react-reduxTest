@@ -9,7 +9,7 @@ export function taskReducer(state = [], action) {
             return newArray
         }
         case taskDelete: {
-            return state.filter(({id}) => id !== action.id)
+            return state.filter(({id}) => id !== action.payload.id)
         }
 
         default:
