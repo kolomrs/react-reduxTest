@@ -7,3 +7,7 @@ export function taskComplete(id) {
 export function titleChange(id) {
     return {type: actionTypes.taskUpdate, payload: {id, title: `New title for ${id}`}}
 }
+
+export function taskDelete(id) {
+    return null
+}
