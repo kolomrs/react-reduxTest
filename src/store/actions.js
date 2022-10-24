@@ -9,5 +9,5 @@ export function titleChange(id) {
 }
 
 export function taskDelete(id) {
-    return null
+    return {type: actionTypes.taskDelete}
 }
