@@ -6,7 +6,7 @@ import {
     completeTask,
     loadTasks,
     getTasks,
-    getTasksLoadingStatus,
+    getTasksLoadingStatus, createTask,
 } from "./store/task";
 import configureStore from "./store/store";
 import {Provider} from "react-redux";
@@ -59,7 +59,7 @@ const App = (params) => {
                     </li>
                 ))}
             </ul>
-            <button onClick={}>Add Task</button>
+            <button onClick={()=>createTask()}>Add Task</button>
         </>
     );
 };
