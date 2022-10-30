@@ -57,6 +57,9 @@ export function titleChanged(id) {
 export function taskDeleted(id) {
     return remove({ id });
 }
+export function createTask(id) {
+    return
+}
 
 export const getTasks = () => (state) => state.tasks.entities;
 export const getTasksLoadingStatus = () => (state) => state.tasks.isLoading;

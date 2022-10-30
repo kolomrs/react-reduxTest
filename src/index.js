@@ -59,6 +59,7 @@ const App = (params) => {
                     </li>
                 ))}
             </ul>
+            <button onClick={}>Add Task</button>
         </>
     );
 };
