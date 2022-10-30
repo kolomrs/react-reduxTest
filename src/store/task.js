@@ -63,10 +63,16 @@ export function taskDeleted(id) {
     return remove({id});
 }
 
-export function createTask(id) {
-    const data = todosService.create(id)
-    return addTask(data)
-}
+export const createTask = (task) => async (dispatch) => {
+    dispatch(taskRequested());
+    try {
+        const data = await todosService.create(task);
+        dispatch(addTask(data));
+    } catch (error) {
+        dispatch(taskRequestFailed());
+        dispatch(setError(error.message));
+    }
+};
 
 export const getTasks = () => (state) => state.tasks.entities;
 export const getTasksLoadingStatus = () => (state) => state.tasks.isLoading;
