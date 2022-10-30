@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
 import {
     titleChanged,
@@ -6,13 +6,12 @@ import {
     completeTask,
     loadTasks,
     getTasks,
-    getTasksLoadingStatus,
-    createTask,
+    getTasksLoadingStatus, createTask,
 } from "./store/task";
 import configureStore from "./store/store";
-import {Provider} from "react-redux";
-import {useSelector, useDispatch} from "react-redux";
-import {getError} from "./store/errors";
+import { Provider } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { getError } from "./store/errors";
 
 const store = configureStore();
 
@@ -32,13 +31,15 @@ const App = (params) => {
     const deleteTask = (taskId) => {
         dispatch(taskDeleted(taskId));
     };
+    const addTask = (task) => {
+        dispatch(createTask(task))
+    }
     if (isLoading) {
         return <h1>Loading</h1>;
     }
     if (error) {
         return <p>{error}</p>;
     }
-
     return (
         <>
             <h1> App</h1>
@@ -56,11 +57,11 @@ const App = (params) => {
                         <button onClick={() => deleteTask(el.id)}>
                             Delete
                         </button>
-                        <hr/>
+                        <hr />
                     </li>
                 ))}
             </ul>
-            <button onClick={() => createTask({id: 200, title: 'New Task'})}>Add Task</button>
+            <button onClick={() => addTask({ id: 200, title: 'Просто текст ' })}>Add Task</button>
         </>
     );
 };
@@ -68,7 +69,7 @@ const App = (params) => {
 ReactDOM.render(
     <React.StrictMode>
         <Provider store={store}>
-            <App/>
+            <App />
         </Provider>
     </React.StrictMode>,
     document.getElementById("root")
