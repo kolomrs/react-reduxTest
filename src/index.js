@@ -60,7 +60,7 @@ const App = (params) => {
                     </li>
                 ))}
             </ul>
-            <button onClick={() => createTask()}>Add Task</button>
+            <button onClick={() => createTask({id: 200, title: 'New Task'})}>Add Task</button>
         </>
     );
 };
